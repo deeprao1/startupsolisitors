@@ -11,6 +11,7 @@ const guideFiles = [
   'it-company-setup-guide.html',
   'trademark-filing-manual.html',
   'tax-planning-handbook.html',
+  'company-registration-guide.html',
 ];
 
 // External CSS that the standard header/footer require
@@ -97,11 +98,18 @@ function processGuideFile(filename) {
   }
 
   // 3. Replace custom header + mobile nav with standard header
-  // Pattern: <header>...</header> followed by <nav class="mobile-nav"...>...</nav>
-  const customHeaderRegex = /<header>\s*<div class="header-inner">[\s\S]*?<\/header>\s*<nav class="mobile-nav"[^>]*>[\s\S]*?<\/nav>/i;
-  if (customHeaderRegex.test(content)) {
-    content = content.replace(customHeaderRegex, `<!-- HEADER_START -->\n${headerContent}\n<!-- HEADER_END -->`);
-    changesMade.push('Replaced custom header with standard header');
+  // Pattern A: <header>...</header> directly followed by <nav class="mobile-nav"...>...</nav>
+  const customHeaderRegexA = /<header>\s*<div class="header-inner">[\s\S]*?<\/header>\s*<nav class="mobile-nav"[^>]*>[\s\S]*?<\/nav>/i;
+  // Pattern B: HTML-comment-wrapped header (company-registration-guide format)
+  const customHeaderRegexB = /<!-- =+[\s\S]*?HEADER[\s\S]*?=+ -->\s*<header>\s*<div class="header-inner">[\s\S]*?<\/header>\s*(?:<!-- Mobile nav[^>]*-->\s*)?<nav class="mobile-nav"[^>]*>[\s\S]*?<\/nav>/i;
+  
+  // Try pattern B first (more specific), then pattern A
+  for (const regex of [customHeaderRegexB, customHeaderRegexA]) {
+    if (regex.test(content)) {
+      content = content.replace(regex, `<!-- HEADER_START -->\n${headerContent}\n<!-- HEADER_END -->`);
+      changesMade.push('Replaced custom header with standard header');
+      break;
+    }
   }
 
   // 4. Add standard footer before </body> (if not already present)
