@@ -74,6 +74,8 @@
   <body>
 
    <!-- HEADER_START -->
+<!-- HEADER_START -->
+<!-- HEADER_START -->
 <header class="ak-site_header ak-style1 ak-sticky_header">
     <div class="moving-section-in animation-speed-20">
       <h2 class="moving-section style-2">
@@ -1109,6 +1111,10 @@ Director Conflict of Interest & Risk Assessmen</a></li>
   </header>
 
 <!-- HEADER_END -->
+
+<!-- HEADER_END -->
+
+<!-- HEADER_END -->
     <!-- End Header Section -->
 
      <!-- Hero Section -->
@@ -1393,6 +1399,8 @@ Director Conflict of Interest & Risk Assessmen</a></li>
     <!-- Start Footer -->
     <div class="ak-height-125 ak-height-lg-80"></div>
     <!-- FOOTER_START -->
+  <!-- FOOTER_START -->
+  <!-- FOOTER_START -->
   <footer class="ak-footer style-1 footer-bg" itemscope itemtype="https://schema.org/LegalService">
     <div class="office-locations">
       <h3>Our Pan-India Office Network</h3>
@@ -2136,6 +2144,142 @@ Director Conflict of Interest & Risk Assessmen</a></li>
   <script src="assets/js/plugins/scrolltoplugins.js"></script>
   <script src="assets/js/header-navigation.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Mega Menu & Dynamic category Helper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const megaCategories = document.querySelectorAll('.mega-main-category');
+    megaCategories.forEach(category => {
+      category.addEventListener('mouseenter', function () {
+        const target = this.getAttribute('data-target');
+        const parentMenu = this.closest('ul');
+        parentMenu.querySelectorAll('.mega-main-category').forEach(cat => { cat.classList.remove('active'); });
+        this.classList.add('active');
+        parentMenu.querySelectorAll('.mega-sub-services').forEach(service => { service.classList.remove('active'); });
+        const targetService = parentMenu.querySelector('#' + target);
+        if (targetService) { targetService.classList.add('active'); }
+      });
+    });
+
+    const closeIcons = document.querySelectorAll('.menu-close-icon');
+    closeIcons.forEach(icon => {
+      icon.addEventListener('click', function () {
+        const parentMenu = this.closest('ul');
+        if (parentMenu) {
+          parentMenu.querySelectorAll('.mega-main-category').forEach(cat => { cat.classList.remove('active'); });
+          parentMenu.querySelectorAll('.mega-sub-services').forEach(service => { service.classList.remove('active'); });
+        }
+      });
+    });
+  });
+  </script>
+
+  <!-- Performance Optimization Script -->
+  <script>
+  const resourceHints = [
+      { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
+      { rel: 'dns-prefetch', href: '//cdnjs.cloudflare.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+  ];
+  resourceHints.forEach(hint => {
+      const link = document.createElement('link');
+      Object.keys(hint).forEach(key => {
+          if (key === 'crossorigin' && hint[key] === '') { link.setAttribute(key, ''); }
+          else { link.setAttribute(key, hint[key]); }
+      });
+      document.head.appendChild(link);
+  });
+
+  window.addEventListener('load', () => {
+      if (typeof gtag === 'undefined') {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
+          script.async = true;
+          document.head.appendChild(script);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'YOUR-GA-ID');
+      }
+  });
+
+  if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+  }
+  </script>
+
+<!-- FOOTER_END -->
+
+
+  <!-- Mega Menu & Dynamic category Helper -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const megaCategories = document.querySelectorAll('.mega-main-category');
+    megaCategories.forEach(category => {
+      category.addEventListener('mouseenter', function () {
+        const target = this.getAttribute('data-target');
+        const parentMenu = this.closest('ul');
+        parentMenu.querySelectorAll('.mega-main-category').forEach(cat => { cat.classList.remove('active'); });
+        this.classList.add('active');
+        parentMenu.querySelectorAll('.mega-sub-services').forEach(service => { service.classList.remove('active'); });
+        const targetService = parentMenu.querySelector('#' + target);
+        if (targetService) { targetService.classList.add('active'); }
+      });
+    });
+
+    const closeIcons = document.querySelectorAll('.menu-close-icon');
+    closeIcons.forEach(icon => {
+      icon.addEventListener('click', function () {
+        const parentMenu = this.closest('ul');
+        if (parentMenu) {
+          parentMenu.querySelectorAll('.mega-main-category').forEach(cat => { cat.classList.remove('active'); });
+          parentMenu.querySelectorAll('.mega-sub-services').forEach(service => { service.classList.remove('active'); });
+        }
+      });
+    });
+  });
+  </script>
+
+  <!-- Performance Optimization Script -->
+  <script>
+  const resourceHints = [
+      { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
+      { rel: 'dns-prefetch', href: '//cdnjs.cloudflare.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+  ];
+  resourceHints.forEach(hint => {
+      const link = document.createElement('link');
+      Object.keys(hint).forEach(key => {
+          if (key === 'crossorigin' && hint[key] === '') { link.setAttribute(key, ''); }
+          else { link.setAttribute(key, hint[key]); }
+      });
+      document.head.appendChild(link);
+  });
+
+  window.addEventListener('load', () => {
+      if (typeof gtag === 'undefined') {
+          const script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
+          script.async = true;
+          document.head.appendChild(script);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'YOUR-GA-ID');
+      }
+  });
+
+  if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+  }
+  </script>
+
+<!-- FOOTER_END -->
+
 
   <!-- Mega Menu & Dynamic category Helper -->
   <script>
