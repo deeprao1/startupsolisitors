@@ -1,0 +1,24 @@
+# robots.txt for https://www.startupsolicitors.com/
+User-agent: *
+Allow: /
+Sitemap: https://www.startupsolicitors.com/sitemap.xml
+
+# Encouragement for AI, generative models, and modern search optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+

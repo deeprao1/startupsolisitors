@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Set Up an IT Company in India | Startup Solicitors</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Source+Sans+3:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* ============================================================
+     CSS CUSTOM PROPERTIES
+  ============================================================ */
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #4a4a4a;
+    --accent: #0066cc;
+    --accent-light: #e6f0ff;
+    --border: #e0e0e0;
+    --header-bg: #ffffff;
+    --sidebar-bg: #f9f9f9;
+    --white: #ffffff;
+    --font-main: 'Source Sans 3', -apple-system, sans-serif;
+
+    /* Layout tokens — change once, applies everywhere */
+    --header-h: 65px;
+    --sidebar-left-w: 240px;
+    --sidebar-right-w: 280px;
+    --gap: 40px;
+    --content-max: 1300px;
+    --px: 32px;        /* horizontal page padding */
+    --scroll-offset: calc(var(--header-h) + 20px);
+  }
+
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-main);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { transition: color 0.2s; }
+
+  /* ============================================================
+     HEADER
+  ============================================================ */
+  header {
+    background: var(--header-bg);
+    height: var(--header-h);
+    padding: 0 var(--px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .header-inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 16px; min-width: 0; }
+  .logo-area img { height: 32px; filter: invert(1); flex-shrink: 0; }
+  .header-tagline {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    padding-left: 16px;
+    border-left: 1px solid var(--border);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  nav { display: flex; gap: 24px; align-items: center; }
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  nav a:hover { color: var(--accent); }
+  .btn-contact {
+    background: white;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-contact:hover { background: var(--accent); color: white; }
+
+  /* Hamburger (mobile) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* Mobile nav drawer */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px var(--px);
+    z-index: 199;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--accent); }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    position: relative;
+    padding: 64px var(--px) 48px;
+    border-bottom: 1px solid var(--border);
+    background: url('assets/img/service/book.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.72);
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+  .hero-badge {
+    color: #93c5fd;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    max-width: 700px;
+  }
+  .hero-sub {
+    font-size: clamp(14px, 2vw, 17px);
+    color: #cbd5e1;
+    max-width: 680px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 40px;
+    margin-top: 32px;
+  }
+  .hero-stat { display: flex; flex-direction: column; }
+  .hero-stat .num {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .hero-stat .lbl {
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  /* ============================================================
+     PAGE BODY — 3-COLUMN GRID
+  ============================================================ */
+  .page-body {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 40px var(--px);
+    display: grid;
+    grid-template-columns: var(--sidebar-left-w) 1fr var(--sidebar-right-w);
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  /* ============================================================
+     LEFT SIDEBAR — TOC
+  ============================================================ */
+  .sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 16px);
+    max-height: calc(100vh - var(--header-h) - 32px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-list { list-style: none; }
+  .toc-list li a {
+    display: block;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.2s;
+    line-height: 1.4;
+  }
+  .toc-list li a:hover { color: var(--text); background: var(--sidebar-bg); }
+  .toc-list li a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--accent-light);
+    font-weight: 600;
+  }
+  .toc-list li a .toc-num { display: none; }
+
+  /* Mobile TOC toggle */
+  .toc-mobile-toggle {
+    display: none;
+    width: 100%;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .toc-mobile-toggle .arrow { transition: transform 0.3s; font-size: 12px; }
+  .toc-mobile-toggle.open .arrow { transform: rotate(180deg); }
+  .toc-mobile-panel {
+    display: none;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 0;
+    margin-bottom: 24px;
+  }
+  .toc-mobile-panel.open { display: block; }
+
+  /* ============================================================
+     MAIN CONTENT
+  ============================================================ */
+  main { min-width: 0; }
+  .section { margin-bottom: 48px; scroll-margin-top: var(--scroll-offset); }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .section h3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text);
+    margin: 28px 0 12px;
+    font-weight: 600;
+  }
+  .section p {
+    color: var(--text);
+    margin-bottom: 18px;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.75;
+  }
+  .section p strong { font-weight: 600; }
+  .section-num { display: none; }
+
+  /* Cards */
+  .info-card {
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--accent);
+  }
+  .info-card .ic-title { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 8px; }
+  .info-card .ic-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* Step list */
+  .step-list { list-style: none; margin: 24px 0; counter-reset: steps; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    min-width: 28px;
+    height: 28px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-list li .step-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-size: clamp(13px, 1.5vw, 15px);
+  }
+  .step-list li .step-desc { font-size: clamp(12px, 1.4vw, 14px); color: var(--muted); line-height: 1.6; }
+
+  /* Highlight / warn boxes */
+  .highlight-box {
+    background: #eef2f6;
+    border-left: 4px solid var(--accent);
+    padding: 18px 20px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  .warn-box {
+    background: #fff8e1;
+    border-left: 4px solid #ffb300;
+    padding: 18px 20px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(12px, 1.4vw, 14px);
+    margin: 18px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .data-table th, .data-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+  .data-table th { background: var(--sidebar-bg); font-weight: 600; color: var(--text); }
+
+  /* ============================================================
+     RIGHT SIDEBAR
+  ============================================================ */
+  .right-sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 16px);
+    background: var(--sidebar-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .right-sidebar h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
+  .topic-list { list-style: none; }
+  .topic-list li { margin-bottom: 0; }
+  .topic-list li a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .topic-list li a:hover { color: var(--accent); background: var(--accent-light); }
+
+  /* ============================================================
+     BOTTOM CTA
+  ============================================================ */
+  .bottom-cta {
+    text-align: center;
+    margin-top: 48px;
+    padding: 56px 32px;
+    background: linear-gradient(135deg, rgba(0,102,204,0.08), rgba(0,0,0,0.04));
+    border: 1px solid rgba(0,102,204,0.2);
+    border-radius: 16px;
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .bottom-cta p {
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    font-size: clamp(13px, 1.5vw, 15px);
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover { background: #0052a3; transform: translateY(-1px); }
+
+  /* Disclaimer */
+  .disclaimer {
+    max-width: var(--content-max);
+    margin: 24px auto 0;
+    padding: 16px var(--px);
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--sidebar-bg);
+    padding: 40px var(--px);
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     1. ≥1280px  — Full 3-column desktop (default above)
+     2. 1024–1279px — 2-column (hide right sidebar)
+     3.  768–1023px — 2-column, narrower left sidebar
+     4.  600–767px  — single column, TOC collapsible
+     5.    0–599px  — full mobile
+  ============================================================ */
+
+  /* ---------- 1024px – 1279px (tablet-landscape / small desktop) ---------- */
+  @media (max-width: 1279px) {
+    :root { --px: 28px; --gap: 32px; }
+    .page-body {
+      grid-template-columns: 220px 1fr;
+    }
+    .right-sidebar { display: none; }
+  }
+
+  /* ---------- 768px – 1023px (tablet-portrait) ---------- */
+  @media (max-width: 1023px) {
+    :root { --px: 24px; --gap: 28px; }
+
+    .header-tagline { display: none; }
+    nav { display: none; }
+    .hamburger { display: flex; }
+
+    .hero { padding: 48px var(--px) 36px; }
+
+    .page-body {
+      grid-template-columns: 200px 1fr;
+      padding-top: 32px;
+    }
+  }
+
+  /* ---------- 767px and below (mobile) ---------- */
+  @media (max-width: 767px) {
+    :root { --px: 20px; --gap: 0; }
+
+    /* Header */
+    header { height: auto; min-height: 56px; }
+    :root { --header-h: 56px; }
+    .logo-area img { height: 28px; }
+
+    /* Hero */
+    .hero { padding: 36px var(--px) 28px; }
+    .hero-stats { gap: 16px 24px; }
+    .hero-stat { flex: 1 1 calc(50% - 12px); }
+
+    /* Layout: single column, no left sidebar grid column */
+    .page-body {
+      grid-template-columns: 1fr;
+      padding: 20px var(--px) 32px;
+    }
+    .sidebar { display: none; }   /* Hide sticky sidebar; use inline TOC toggle */
+
+    /* Show mobile TOC toggle */
+    .toc-mobile-toggle { display: flex; }
+
+    /* Content */
+    .section { margin-bottom: 36px; scroll-margin-top: 80px; }
+    .step-list li { gap: 12px; }
+    .info-card { padding: 16px; }
+
+    /* CTA */
+    .bottom-cta { padding: 36px 20px; }
+    .cta-btn { padding: 13px 28px; }
+  }
+
+  /* ---------- 599px and below (small mobile) ---------- */
+  @media (max-width: 599px) {
+    :root { --px: 16px; }
+
+    .hero { padding: 28px var(--px) 24px; }
+    .hero-stats { gap: 12px 20px; }
+
+    /* Tables scroll horizontally */
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .data-table { min-width: 480px; }
+
+    .step-list li::before { min-width: 24px; height: 24px; font-size: 11px; }
+
+    .bottom-cta { padding: 28px 16px; border-radius: 12px; }
+    .cta-btn { width: 100%; text-align: center; padding: 13px 20px; }
+  }
+
+  /* ---------- 380px and below (very small phones) ---------- */
+  @media (max-width: 380px) {
+    :root { --px: 14px; }
+    .hero-stat { flex: 1 1 100%; }
+    .hero-stats { gap: 10px; }
+  }
+
+  /* ============================================================
+     UTILITY: smooth reveal for sections
+  ============================================================ */
+  @media (prefers-reduced-motion: no-preference) {
+    .section { animation: fadeUp 0.4s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<div class="logo-wrap">
+<div class="logo-area">
+<img alt="Startup Solicitors" src="assets/img/white-logo.svg"/>
+</div>
+<div class="header-tagline">IT Company Setup Guide</div>
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a class="btn-contact" href="contact.html">Contact Us</a>
+</nav>
+<button aria-expanded="false" aria-label="Open menu" class="hamburger" id="hamburgerBtn">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header><nav class="mobile-nav" id="mobileNav" role="navigation">
+<a href="index.html">Home</a>
+<a href="contact.html">Contact Us</a>
+</nav>
+<div class="hero">
+<div class="hero-inner">
+<div class="hero-badge">Complete Legal Guide · 2024 Edition</div>
+<h1>Setting Up an <span>IT Company</span> in India</h1>
+<p class="hero-sub">A comprehensive legal and regulatory guide covering corporate structures, registrations, compliances, taxation, and intellectual property for technology businesses in India.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="num">12+</div><div class="lbl">Key Steps</div></div>
+<div class="hero-stat"><div class="num">5</div><div class="lbl">Legal Structures</div></div>
+<div class="hero-stat"><div class="num">30+</div><div class="lbl">Compliance Points</div></div>
+<div class="hero-stat"><div class="num">100%</div><div class="lbl">Expert Guidance</div></div>
+</div>
+</div>
+</div>
+<div class="page-body">
+<aside class="sidebar">
+<div class="sidebar-title">Index</div>
+<ul class="toc-list" id="tocList">
+<li><a href="#overview">Overview</a></li>
+<li><a href="#structures">Business Structures</a></li>
+<li><a href="#registration">Company Registration</a></li>
+<li><a href="#dscdip">DSC &amp; DIN</a></li>
+<li><a href="#moa">MOA &amp; AOA</a></li>
+<li><a href="#postinc">Post-Incorporation</a></li>
+<li><a href="#tax">Taxation &amp; GST</a></li>
+<li><a href="#labour">Labour Laws</a></li>
+<li><a href="#ipr">IPR &amp; Data Laws</a></li>
+<li><a href="#funding">Funding &amp; FDI</a></li>
+<li><a href="#sez">SEZ / STPI Benefits</a></li>
+<li><a href="#compliance">Annual Compliance</a></li>
+<li><a href="#checklist">Master Checklist</a></li>
+</ul>
+<div class="sidebar-cta">
+<h4>Need Expert Help?</h4>
+<p>Our team handles the entire setup — from registration to ongoing compliance.</p>
+<a class="btn-cta" href="https://startupsolicitors.com">Talk to a Lawyer</a>
+</div>
+</aside>
+<main>
+<section class="section" id="overview">
+<div class="section-header">
+<div><span class="section-num">Section 01</span><h2>Overview: India's IT Landscape</h2></div>
+</div>
+<p>India is one of the world's leading destinations for technology businesses. With a robust legal framework, a massive pool of skilled talent, a growing domestic digital economy, and progressive government initiatives like <strong>Digital India</strong> and <strong>Startup India</strong>, establishing an IT company here offers unmatched strategic advantages.</p>
+<p>Whether you are building a SaaS product, an IT services export company, a mobile application startup, a fintech venture, or an AI/data company, India's legal and regulatory ecosystem is well-equipped to support you — if you navigate it correctly.</p>
+<div class="info-grid">
+<div class="info-card"><div class="ic-title">Startup India</div><div class="ic-body">DPIIT recognition unlocks tax exemptions, self-certification under labour laws, and fast-track IPR filings.</div></div>
+<div class="info-card"><div class="ic-title">Ease of Doing Business</div><div class="ic-body">India has improved significantly in global rankings. Online single-window portals simplify incorporation.</div></div>
+<div class="info-card"><div class="ic-title">Talent Pool</div><div class="ic-body">India produces over 1.5 million engineering graduates annually — the largest technical talent base in the world.</div></div>
+<div class="info-card"><div class="ic-title">Export Incentives</div><div class="ic-body">IT/ITES export companies benefit from SEZ/STPI schemes, Section 10AA income tax exemptions, and zero-rated GST on exports.</div></div>
+</div>
+<div class="highlight-box"><strong>Key Governing Laws:</strong> The Companies Act 2013 (MCA), Income Tax Act 1961, GST Acts 2017, IT Act 2000 &amp; DPDP Act 2023, Intellectual Property laws (Patents, Trademarks, Copyrights), SEZ Act 2005, FEMA 1999 (for FDI/foreign entities).</div>
+</section>
+<section class="section" id="structures">
+<div class="section-header">
+<div><span class="section-num">Section 02</span><h2>Choosing the Right Business Structure</h2></div>
+</div>
+<p>Selecting the correct legal entity is the most important strategic decision you will make. It affects liability, taxation, fundraising ability, compliance burden, and exit options.</p>
+<div class="compare-grid">
+<div class="compare-card">
+<div class="cc-type">Solo Founder</div>
+<div class="cc-name">Sole Proprietorship</div>
+<ul><li>No registration required</li><li>Full control</li><li>Unlimited liability</li><li>Cannot raise equity</li><li>Not scalable</li></ul>
+</div>
+<div class="compare-card">
+<div class="cc-type">2–20 Partners</div>
+<div class="cc-name">Partnership / LLP</div>
+<ul><li>LLP: Limited liability</li><li>Flexible management</li><li>Lower compliance</li><li>Good for service firms</li><li>Limited VC appeal</li></ul>
+</div>
+<div class="compare-card featured">
+<div class="rec-badge">Recommended</div>
+<div class="cc-type">Startups &amp; Growth Co.</div>
+<div class="cc-name">Private Limited Company</div>
+<ul><li>Separate legal entity</li><li>Limited liability</li><li>VC/Angel fundable</li><li>ESOP friendly</li><li>DPIIT eligible</li></ul>
+</div>
+<div class="compare-card">
+<div class="cc-type">Large Enterprise</div>
+<div class="cc-name">Public Limited Company</div>
+<ul><li>Can list on stock exchange</li><li>Public shareholding</li><li>High compliance</li><li>Suitable post-scale</li><li>SEBI regulated</li></ul>
+</div>
+<div class="compare-card">
+<div class="cc-type">Foreign Companies</div>
+<div class="cc-name">Branch / Liaison / WOS</div>
+<ul><li>Branch: Limited activities</li><li>Liaison: No revenue</li><li>WOS: Fully operational</li><li>RBI/FEMA approval</li><li>100% FDI in IT sector</li></ul>
+</div>
+</div>
+<div class="highlight-box"><strong>Our Recommendation for IT Startups:</strong> A <strong>Private Limited Company</strong> under the Companies Act 2013 is almost universally the best choice for technology startups. It offers limited liability protection, easy equity sharing, ESOP issuance capability, DPIIT Startup India recognition eligibility, and is the preferred structure for angel and venture capital investment.</div>
+</section>
+<section class="section" id="registration">
+<div class="section-header">
+<div><span class="section-num">Section 03</span><h2>Registering Your IT Company</h2></div>
+</div>
+<p>The Ministry of Corporate Affairs (MCA) governs company incorporation in India. The entire process is online through the MCA21 portal. A Private Limited Company can typically be incorporated within <strong>7–15 working days</strong> with professional assistance.</p>
+<ol class="step-list">
+<li><div><div class="step-title">Obtain Digital Signature Certificate (DSC)</div><div class="step-desc">All proposed directors must obtain a Class 3 DSC from a government-approved Certifying Authority (e.g., eMudhra, Sify, NSDL). DSCs are used to digitally sign all MCA filings. Takes 1–2 days.</div></div></li>
+<li><div><div class="step-title">Apply for Director Identification Number (DIN)</div><div class="step-desc">DIN is a unique identification number for each director. It can now be applied for within the SPICe+ incorporation form — no separate application needed for new companies.</div></div></li>
+<li><div><div class="step-title">Name Reservation via RUN / SPICe+</div><div class="step-desc">Reserve your company name using the RUN portal on MCA21. Names must be unique, non-conflicting with trademarks, and must end in "Private Limited." Avoid generic IT-related names.</div></div></li>
+<li><div><div class="step-title">Prepare Incorporation Documents</div><div class="step-desc">Draft the MOA and AOA. For IT companies, ensure the Objects Clause covers software development, IT services, SaaS, consulting, and all planned activities. Identity/address proofs of all directors and shareholders are required.</div></div></li>
+<li><div><div class="step-title">File SPICe+ Form on MCA21</div><div class="step-desc">The SPICe+ form is an integrated form that handles incorporation, DIN allotment, PAN, TAN, EPFO, ESIC, Profession Tax (Maharashtra), and bank account opening in a single submission.</div></div></li>
+<li><div><div class="step-title">File AGILE-PRO-S Form</div><div class="step-desc">Linked to SPICe+, this simultaneously registers your company for GST, EPFO, ESIC, Profession Tax, and opens a current bank account through partner banks.</div></div></li>
+<li><div><div class="step-title">Certificate of Incorporation (COI) Issued</div><div class="step-desc">Upon ROC approval, a Certificate of Incorporation (COI) is issued with your CIN. PAN and TAN are also issued simultaneously by the Income Tax Department.</div></div></li>
+<li><div><div class="step-title">Open Business Bank Account &amp; File INC-20A</div><div class="step-desc">Open a current account using COI, MOA/AOA, PAN, and KYC documents. File INC-20A (Declaration of Commencement of Business) within 180 days of incorporation before commencing any operations.</div></div></li>
+</ol>
+<div class="warn-box"><strong>Important:</strong> For IT companies, co-working spaces, virtual offices, or rented offices are all acceptable as registered office — ensure you have a valid rent agreement and NOC from the property owner.</div>
+</section>
+<section class="section" id="dscdip">
+<div class="section-header">
+<div><span class="section-num">Section 04</span><h2>Digital Signature Certificate (DSC) &amp; DIN</h2></div>
+</div>
+<p>A DSC is the electronic equivalent of a handwritten signature, mandatory for all directors for signing MCA filings, ROC returns, and ITR filings. IT companies also use DSCs for e-tendering with government departments.</p>
+<div class="two-col">
+<div>
+<h3>DSC Requirements</h3>
+<ul class="check-list">
+<li>Class 3 DSC required for all MCA filings (Class 2 discontinued from 2022)</li>
+<li>Valid for 1 or 2 years — must be renewed before expiry</li>
+<li>PAN card, Aadhaar, passport photo, and mobile number required</li>
+<li>Cost: approximately ₹1,000–₹2,500 per director</li>
+<li>Issued within 24–48 hours by authorised CAs</li>
+</ul>
+</div>
+<div>
+<h3>Director Identification Number (DIN)</h3>
+<ul class="check-list">
+<li>Unique 8-digit number assigned to every director</li>
+<li>Obtained automatically via SPICe+ for new companies</li>
+<li>One DIN per individual (valid for lifetime)</li>
+<li>KYC must be updated annually (DIR-3 KYC by Sep 30)</li>
+<li>Foreign nationals can also obtain DIN with notarised passport</li>
+</ul>
+</div>
+</div>
+<div class="highlight-box"><strong>For Foreign Directors:</strong> A foreign national can be a director/shareholder in an Indian company. One director must be an Indian resident (ordinarily resident for at least 182 days in the previous financial year) as mandated under the Companies Act 2013.</div>
+</section>
+<section class="section" id="moa">
+<div class="section-header">
+<div><span class="section-num">Section 05</span><h2>Memorandum &amp; Articles of Association</h2></div>
+</div>
+<p>The <strong>MOA</strong> defines the company's constitution and scope of activities (Objects Clause). The <strong>AOA</strong> governs internal management, shareholder rights, and director powers. Both are foundational legal documents — never use standard templates for IT startups.</p>
+<h3>Objects Clause — What to Include for IT Companies</h3>
+<div class="tag-list">
+<span class="tag">Software Development</span><span class="tag">SaaS Products</span><span class="tag">Mobile App Development</span><span class="tag">IT Consulting</span><span class="tag">Cloud Computing</span><span class="tag">Cybersecurity</span><span class="tag">AI &amp; Machine Learning</span><span class="tag">Data Analytics</span><span class="tag">E-commerce Solutions</span><span class="tag">IT Export / ITES / BPO</span><span class="tag">ERP Implementation</span><span class="tag">Website Design &amp; Hosting</span><span class="tag">Blockchain Solutions</span><span class="tag">IoT Products</span><span class="tag">Digital Marketing Technology</span>
+</div>
+<h3>Key AOA Clauses for IT Startups</h3>
+<div class="data-table-wrapper">
+<table class="data-table">
+<thead><tr><th>Clause</th><th>Importance for IT Companies</th></tr></thead>
+<tbody>
+<tr><td>Share Transfer Restrictions</td><td>Right of First Refusal (ROFR), lock-in periods for founders — critical for investor negotiations</td></tr>
+<tr><td>ESOP / Stock Option Pool</td><td>Enables issuance of Employee Stock Option Plans — essential for attracting top tech talent</td></tr>
+<tr><td>Drag-along / Tag-along Rights</td><td>Standard investor protection clauses for venture-backed IT companies</td></tr>
+<tr><td>Reserved Matters / Investor Rights</td><td>Investor consent for key decisions — needed when onboarding angel/VC investors</td></tr>
+<tr><td>Anti-Dilution Provisions</td><td>Protects investors from dilution in down rounds — negotiated at investment stage</td></tr>
+<tr><td>Board Composition</td><td>Defines director appointment/removal rights — important for founder control post-funding</td></tr>
+</tbody>
+</table>
+</div>
+<div class="warn-box"><strong>Do Not Use Table-F:</strong> The default Table-F articles are completely inadequate for technology startups. Always have your MOA and AOA professionally drafted with startup-friendly investor clauses from Day 1.</div>
+</section>
+<section class="section" id="postinc">
+<div class="section-header">
+<div><span class="section-num">Section 06</span><h2>Post-Incorporation Registrations</h2></div>
+</div>
+<p>Once your Certificate of Incorporation is issued, several post-incorporation steps must be completed within prescribed timelines. Failure to complete these can attract penalties and operational disruptions.</p>
+<div class="timeline">
+<div class="tl-item">
+<div class="tl-dot">01</div>
+<div><div class="tl-time">Immediately after COI</div><div class="tl-title">Open Bank Account &amp; File INC-20A</div><div class="tl-desc">Open current account, deposit subscribed share capital, and file INC-20A within 180 days. Mandatory before commencing any business operations.</div></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot">02</div>
+<div><div class="tl-time">Within 30 days of incorporation</div><div class="tl-title">GST Registration</div><div class="tl-desc">Mandatory if turnover exceeds ₹20 lakhs. For IT export companies, register immediately to claim zero-rating and LUT benefits. Enables input tax credit on all business expenses.</div></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot">03</div>
+<div><div class="tl-time">Before hiring first employee</div><div class="tl-title">EPFO &amp; ESIC Registration</div><div class="tl-desc">EPFO is mandatory for 20+ employees. ESIC applies to 10+ employees with wages up to ₹21,000/month. Both can be set up via SPICe+ AGILE process.</div></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot">04</div>
+<div><div class="tl-time">As soon as possible</div><div class="tl-title">DPIIT Startup India Recognition</div><div class="tl-desc">Apply on the Startup India portal. Benefits include 3-year income tax holiday (Sec 80-IAC), self-certification under labour laws, fast-track patent/trademark processing, and 80% fee rebate on IPR filings.</div></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot">05</div>
+<div><div class="tl-time">Before IT product launch</div><div class="tl-title">Trademark Registration</div><div class="tl-desc">File for trademark under Classes 9 (software), 38 (telecom), and 42 (computer services). DPIIT-recognised startups receive 80% rebate on government trademark filing fees.</div></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot">06</div>
+<div><div class="tl-time">If exporting IT services</div><div class="tl-title">STPI / SEZ Registration</div><div class="tl-desc">Register under STPI scheme or in an SEZ for export benefits including duty-free imports, Section 10AA income tax exemption, and single-window compliance clearance.</div></div>
+</div>
+</div>
+</section>
+<section class="section" id="tax">
+<div class="section-header">
+<div><span class="section-num">Section 07</span><h2>Taxation &amp; GST for IT Companies</h2></div>
+</div>
+<h3>Corporate Income Tax Rates</h3>
+<div class="data-table-wrapper">
+<table class="data-table">
+<thead><tr><th>Category</th><th>Tax Rate</th><th>Effective Rate (incl. surcharge)</th></tr></thead>
+<tbody>
+<tr><td>New Manufacturing Co. (Sec 115BAB)</td><td>15%</td><td>~17.01%</td></tr>
+<tr><td>Domestic Co. opting for Sec 115BAA</td><td>22%</td><td>~25.17%</td></tr>
+<tr><td>Domestic Co. (Turnover ≤ ₹400 Cr)</td><td>25%</td><td>~26%</td></tr>
+<tr><td>Other Domestic Companies</td><td>30%</td><td>~34.94%</td></tr>
+<tr><td>DPIIT Startup (Sec 80-IAC holiday)</td><td colspan="2">NIL for 3 consecutive years out of first 10 years of incorporation</td></tr>
+</tbody>
+</table>
+</div>
+<h3>GST for IT Companies</h3>
+<div class="info-grid">
+<div class="info-card"><div class="ic-title">Software Products (packaged)</div><div class="ic-body">GST Rate: 18%. Applicable on sale of off-the-shelf software, licenses, and packaged products.</div></div>
+<div class="info-card"><div class="ic-title">IT Services (domestic)</div><div class="ic-body">GST Rate: 18%. Applies to software development, consulting, maintenance, and support within India.</div></div>
+<div class="info-card"><div class="ic-title">IT / ITES Export Services</div><div class="ic-body">Zero-rated (0% GST). File Letter of Undertaking (LUT) annually to export without paying GST. Claim refund on input services.</div></div>
+<div class="info-card"><div class="ic-title">SaaS / Cloud Services</div><div class="ic-body">18% GST for Indian customers. Zero-rated for overseas customers with LUT. Follow Place of Supply rules carefully.</div></div>
+</div>
+<div class="warn-box"><strong>TDS Compliance:</strong> Deduct TDS on salary (Sec 192), professional fees (Sec 194J — 10%), rent (Sec 194I), and foreign payments (Sec 195). Non-deduction attracts penalties and disallowance of expenses. File quarterly TDS returns (Form 24Q, 26Q) without fail.</div>
+</section>
+<section class="section" id="labour">
+<div class="section-header">
+<div><span class="section-num">Section 08</span><h2>Labour Laws &amp; HR Compliance</h2></div>
+</div>
+<div class="two-col">
+<div>
+<h3>Mandatory Compliances</h3>
+<ul class="check-list">
+<li><strong>PF:</strong> 12% employer + 12% employee on basic salary (20+ employees)</li>
+<li><strong>ESIC:</strong> 3.25% employer + 0.75% employee on wages up to ₹21,000/month</li>
+<li><strong>Professional Tax:</strong> State-specific slab-based tax on salaries</li>
+<li><strong>Gratuity:</strong> 15 days salary per year, payable after 5 years continuous service</li>
+<li><strong>Minimum Wages:</strong> State-specific, must be documented even if IT salaries exceed these</li>
+</ul>
+</div>
+<div>
+<h3>IT Sector Specifics</h3>
+<ul class="check-list">
+<li><strong>POSH Act:</strong> Mandatory ICC (Internal Complaints Committee) for 10+ employees; annual report in Director's Report</li>
+<li><strong>Shops &amp; Establishment Act:</strong> Register within 30 days of opening office in each state</li>
+<li><strong>Employment Agreements:</strong> Must include IP Assignment, NDA, Non-Compete, and Data Protection clauses</li>
+<li><strong>Remote Work Policy:</strong> Define WFH, BYOD, data security, and moonlighting policies clearly</li>
+</ul>
+</div>
+</div>
+<h3>Critical Clauses in IT Employment Agreements</h3>
+<div class="tag-list">
+<span class="tag">IP Assignment</span><span class="tag">Non-Disclosure (NDA)</span><span class="tag">Non-Compete</span><span class="tag">Non-Solicitation</span><span class="tag">BYOD / Device Policy</span><span class="tag">Social Media Policy</span><span class="tag">Moonlighting Restriction</span><span class="tag">Data Protection Obligations</span><span class="tag">Notice Period (1–3 months)</span><span class="tag">Code of Conduct</span>
+</div>
+<div class="highlight-box"><strong>DPIIT Startup India Benefit:</strong> Recognised startups can self-certify compliance under 6 labour laws for the first 5 years, avoiding government inspections during this period.</div>
+</section>
+<section class="section" id="ipr">
+<div class="section-header">
+<div><span class="section-num">Section 09</span><h2>Intellectual Property Rights &amp; Data Laws</h2></div>
+</div>
+<p>For an IT company, your intellectual property is your most valuable asset. A robust IP strategy from Day 1 protects your competitive advantage and underpins your valuation.</p>
+<div class="info-grid">
+<div class="info-card"><div class="ic-title">Copyright</div><div class="ic-body">Software code is automatically protected under the Copyright Act 1957 upon creation. Assign all copyrights from developers to the company via IP Assignment clauses in employment contracts.</div></div>
+<div class="info-card"><div class="ic-title">Trademarks</div><div class="ic-body">Register your brand name, logo, and product name under Classes 9, 38, and 42. DPIIT startups get 80% fee rebate. Protection for 10 years, renewable indefinitely.</div></div>
+<div class="info-card"><div class="ic-title">Patents</div><div class="ic-body">Pure software is not patentable in India, but hardware-software inventions may qualify. DPIIT startups get 80% rebate on patent fees and expedited examination.</div></div>
+<div class="info-card"><div class="ic-title">Trade Secrets</div><div class="ic-body">Protect proprietary algorithms via strict NDAs, access controls, and employment agreements. India lacks a standalone Trade Secrets Act — protection comes via contract and equity law.</div></div>
+</div>
+<h3>Data Protection — DPDP Act 2023</h3>
+<ul class="check-list">
+<li>Obtain free, informed, specific consent before processing personal data</li>
+<li>Process data only for the lawful purpose for which consent was obtained</li>
+<li>Implement appropriate technical and organisational security measures</li>
+<li>Appoint a Data Protection Officer (DPO) if designated as Significant Data Fiduciary</li>
+<li>Enable Data Principal rights: access, correction, erasure, and grievance redressal</li>
+<li>Notify the Data Protection Board of India in case of data breaches</li>
+<li>Comply with cross-border data transfer restrictions as notified</li>
+</ul>
+<div class="warn-box"><strong>CERT-In Compliance:</strong> CERT-In mandates reporting of cybersecurity incidents within 6 hours of detection. IT companies handling sensitive data should implement ISO 27001 ISMS — strongly recommended for export companies and government contracts.</div>
+</section>
+<section class="section" id="funding">
+<div class="section-header">
+<div><span class="section-num">Section 10</span><h2>Funding, Equity &amp; Foreign Direct Investment</h2></div>
+</div>
+<p>India allows <strong>100% FDI in the IT sector under the Automatic Route</strong> — no prior government approval required. Understanding FEMA compliance is critical for international fundraising.</p>
+<h3>FDI Compliance under FEMA</h3>
+<ul class="check-list">
+<li>100% FDI under Automatic Route in IT, ITES, software development, and IT-enabled services</li>
+<li>Foreign investment must be reported to RBI in Form FC-GPR within 30 days of share allotment</li>
+<li>Annual Return on Foreign Liabilities and Assets (FLA) filed with RBI by 15 July each year</li>
+<li>Share pricing to foreign investors must comply with FEMA pricing guidelines (DCF/CCI method)</li>
+<li>Convertible instruments (CCDs, CCPS, SAFEs) are commonly used for angel/seed rounds</li>
+</ul>
+<h3>ESOP (Employee Stock Option Plans)</h3>
+<ul class="check-list">
+<li>Minimum vesting period: 1 year from date of grant</li>
+<li>Can be issued to employees, directors (except promoters holding 10%+), and consultants</li>
+<li>Taxed as perquisite at exercise and as capital gain on sale of shares</li>
+<li>DPIIT startups: ESOP tax deferred to sale of shares or when employee leaves — significant cashflow benefit</li>
+<li>File PAS-3 return with ROC within 30 days of each exercise/allotment</li>
+</ul>
+<div class="highlight-box"><strong>Convertible Instruments:</strong> Compulsorily Convertible Debentures (CCDs), Compulsorily Convertible Preference Shares (CCPS), and SAFEs are FEMA-compliant instruments commonly used for early-stage IT startup investments. Always engage a lawyer for proper structuring and RBI reporting.</div>
+</section>
+<section class="section" id="sez">
+<div class="section-header">
+<div><span class="section-num">Section 11</span><h2>SEZ, STPI &amp; Export Benefits for IT Companies</h2></div>
+</div>
+<div class="two-col">
+<div>
+<h3>STPI Scheme</h3>
+<ul class="check-list">
+<li>Register as STPI unit with nearest STPI centre</li>
+<li>Import hardware/software duty-free for export production</li>
+<li>Simplified customs procedures via STPI green channel</li>
+<li>Net Foreign Exchange (NFE) must be positive</li>
+<li>Annual performance report filing required</li>
+<li>Suitable for smaller IT firms exporting software/services</li>
+</ul>
+</div>
+<div>
+<h3>SEZ Scheme</h3>
+<ul class="check-list">
+<li>Set up in designated IT SEZ areas (SEEPZ Mumbai, Noida SEZ, Cochin etc.)</li>
+<li>Sec 10AA: 100% income tax deduction for first 5 years, 50% for next 10 years</li>
+<li>Customs/excise duty exemption on imports and capital goods</li>
+<li>Goods/services to/from SEZ are treated as exports under GST</li>
+<li>Suitable for larger IT companies with significant export revenue</li>
+</ul>
+</div>
+</div>
+<div class="highlight-box"><strong>GST for IT Exporters:</strong> IT services exported are zero-rated under GST. File a Letter of Undertaking (LUT) at the start of each financial year to export without paying GST and claim refunds on input services. This is highly advantageous for companies with significant domestic vendor costs.</div>
+</section>
+<section class="section" id="compliance">
+<div class="section-header">
+<div><span class="section-num">Section 12</span><h2>Annual Compliance Calendar</h2></div>
+</div>
+<div class="data-table-wrapper">
+<table class="data-table">
+<thead><tr><th>Compliance</th><th>Form / Filing</th><th>Due Date</th><th>Authority</th></tr></thead>
+<tbody>
+<tr><td>Annual Return</td><td>MGT-7A / MGT-7</td><td>60 days from AGM</td><td>MCA / ROC</td></tr>
+<tr><td>Financial Statements</td><td>AOC-4 / XBRL</td><td>30 days from AGM</td><td>MCA / ROC</td></tr>
+<tr><td>Annual General Meeting</td><td>—</td><td>By September 30 (6 months after FY end)</td><td>Companies Act</td></tr>
+<tr><td>Income Tax Return</td><td>ITR-6</td><td>Oct 31 (if tax audit) / Jul 31 (others)</td><td>Income Tax Dept.</td></tr>
+<tr><td>GST Annual Return</td><td>GSTR-9 / 9C</td><td>December 31</td><td>GSTN</td></tr>
+<tr><td>Director KYC</td><td>DIR-3 KYC</td><td>September 30 every year</td><td>MCA</td></tr>
+<tr><td>Board Meetings</td><td>Maintain minutes</td><td>Minimum 4 per year (max 120-day gap)</td><td>Companies Act</td></tr>
+<tr><td>TDS Returns</td><td>24Q / 26Q</td><td>Quarterly (Jul 31, Oct 31, Jan 31, May 31)</td><td>TDS / TRACES</td></tr>
+<tr><td>Advance Tax</td><td>Challan 280</td><td>Jun 15, Sep 15, Dec 15, Mar 15</td><td>Income Tax</td></tr>
+<tr><td>EPFO / ESIC Returns</td><td>ECR / Monthly Returns</td><td>Monthly by 15th</td><td>EPFO / ESIC</td></tr>
+<tr><td>GST Monthly Returns</td><td>GSTR-1, GSTR-3B</td><td>Monthly / Quarterly</td><td>GSTN</td></tr>
+<tr><td>Statutory Audit</td><td>Auditor's Report</td><td>Before filing financial statements</td><td>ICAI</td></tr>
+</tbody>
+</table>
+</div>
+<div class="warn-box"><strong>Penalty Alert:</strong> Late filing of ROC returns attracts 2x to 12x additional fees. Non-filing for more than 2 years can result in the company being struck off and directors being disqualified for 5 years. Always maintain a compliance calendar managed by your legal/CA team.</div>
+</section>
+<section class="section" id="checklist">
+<div class="section-header">
+<div><span class="section-num">Section 13</span><h2>Master Checklist — Setting Up Your IT Company</h2></div>
+</div>
+<div class="two-col">
+<div>
+<h3>Pre-Incorporation</h3>
+<ul class="check-list">
+<li>Decide on business structure (Pvt Ltd recommended)</li>
+<li>Finalise company name — check MCA + trademark databases</li>
+<li>Decide registered office address (own/leased/virtual)</li>
+<li>Identify all directors and shareholders</li>
+<li>Obtain Class 3 DSC for all directors</li>
+<li>Prepare MOA / AOA with startup-friendly clauses</li>
+<li>Collect KYC documents of all directors/shareholders</li>
+</ul>
+<h3>Incorporation</h3>
+<ul class="check-list">
+<li>File SPICe+ + AGILE-PRO-S on MCA21</li>
+<li>Obtain Certificate of Incorporation (COI) + CIN</li>
+<li>Receive PAN and TAN</li>
+<li>Open current bank account</li>
+<li>File INC-20A (commencement of business declaration)</li>
+</ul>
+<h3>Intellectual Property</h3>
+<ul class="check-list">
+<li>File trademark for company name + logo</li>
+<li>Register software copyrights where required</li>
+<li>Assess patent eligibility for core innovations</li>
+<li>IP Assignment clauses in all employment/contractor agreements</li>
+<li>NDA policies for all staff and third parties</li>
+</ul>
+</div>
+<div>
+<h3>Post-Incorporation (Immediate)</h3>
+<ul class="check-list">
+<li>Apply for DPIIT Startup India recognition</li>
+<li>Register for GST; apply for LUT if exporting</li>
+<li>Register under Shops &amp; Establishment Act</li>
+<li>Obtain EPFO / ESIC registration</li>
+<li>Register with STPI or SEZ (if exporting IT services)</li>
+<li>Set up accounting software and payroll system</li>
+<li>Draft employment contracts / consultant agreements</li>
+<li>Implement POSH policy (if 10+ employees)</li>
+<li>Implement DPDP Act data protection framework</li>
+</ul>
+<h3>Ongoing Compliance</h3>
+<ul class="check-list">
+<li>Maintain statutory registers (Share, Director, Charges)</li>
+<li>Hold quarterly Board meetings and maintain minutes</li>
+<li>File monthly GST returns (GSTR-1 + GSTR-3B)</li>
+<li>Deduct and deposit TDS monthly; file quarterly TDS returns</li>
+<li>Pay advance tax in 4 instalments each financial year</li>
+<li>Conduct statutory audit and file ITR annually</li>
+<li>File ROC annual returns (MGT-7, AOC-4)</li>
+<li>Renew LUT for GST exports at start of each financial year</li>
+<li>Update Director KYC (DIR-3) by September 30 each year</li>
+<li>Renew trademarks every 10 years</li>
+</ul>
+</div>
+</div>
+<div class="bottom-cta">
+<div class="cta-title">Ready to Set Up Your IT Company?</div>
+<p>Startup Solicitors handles the entire process — from incorporation to compliance — so you can focus on building your product.</p>
+<a class="cta-btn" href="contact.html">Start Incorporation</a>
+</div>
+</section>
+</main>
+<aside aria-label="Browse topics" class="right-sidebar">
+<h3>Browse by topics</h3>
+<ul class="topic-list">
+<li><a href="company-registration-guide.html">Company Registration</a></li>
+<li><a href="it-company-setup-guide.html">IT Company Setup</a></li>
+<li><a href="tax-planning-handbook.html">Tax Planning</a></li>
+<li><a href="trademark-filing-manual.html">Trademark Filing</a></li>
+<li><a href="startup-india-registration.html">Startup India Reg.</a></li>
+<li><a href="gst-registration.html">GST Registration</a></li>
+<li><a href="msme-udyami-registration.html">MSME Registration</a></li>
+</ul>
+</aside></div>
+<div class="disclaimer">
+<strong>Legal Disclaimer:</strong> This guide is for informational purposes only and does not constitute legal advice. Laws and regulations are subject to change. Please consult a qualified legal professional at Startup Solicitors for advice specific to your situation. 
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---- Hamburger menu ---- */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileNav    = document.getElementById('mobileNav');
+
+  hamburgerBtn.addEventListener('click', function () {
+    const open = mobileNav.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', open);
+    // Animate spans into X
+    const spans = hamburgerBtn.querySelectorAll('span');
+    if (open) {
+      spans[0].style.cssText = 'transform:translateY(7px) rotate(45deg)';
+      spans[1].style.cssText = 'opacity:0';
+      spans[2].style.cssText = 'transform:translateY(-7px) rotate(-45deg)';
+    } else {
+      spans.forEach(s => s.style.cssText = '');
+    }
+  });
+
+  /* ---- Mobile TOC toggle ---- */
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanel  = document.getElementById('tocMobilePanel');
+
+  if (tocToggle) {
+    tocToggle.addEventListener('click', function () {
+      const open = tocPanel.classList.toggle('open');
+      tocToggle.classList.toggle('open', open);
+      tocToggle.setAttribute('aria-expanded', open);
+    });
+  }
+
+  /* ---- Close mobile nav & TOC when a link is clicked ---- */
+  document.querySelectorAll('.mobile-nav a, .toc-mobile-panel a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+      hamburgerBtn.querySelectorAll('span').forEach(s => s.style.cssText = '');
+      if (tocPanel) tocPanel.classList.remove('open');
+      if (tocToggle) { tocToggle.classList.remove('open'); tocToggle.setAttribute('aria-expanded', false); }
+    });
+  });
+
+  /* ---- Smooth scroll for all TOC links ---- */
+  const headerH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 65;
+
+  document.querySelectorAll('.toc-list a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').slice(1));
+      if (!target) return;
+      window.scrollTo({ top: target.offsetTop - headerH() - 20, behavior: 'smooth' });
+      setActive(this.getAttribute('href').slice(1));
+    });
+  });
+
+  /* ---- Active link on scroll (IntersectionObserver — performant) ---- */
+  const sections  = document.querySelectorAll('.section[id]');
+  const allLinks  = document.querySelectorAll('.toc-list a'); // covers both sidebars
+
+  function setActive(id) {
+    allLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, {
+    rootMargin: `-${headerH() + 20}px 0px -55% 0px`,
+    threshold: 0
+  });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ---- Set first item active on load ---- */
+  if (allLinks.length) allLinks[0].classList.add('active');
+});
+</script>
+</body>
+</html>

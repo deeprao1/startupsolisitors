@@ -1,0 +1,351 @@
+/* Custom styles for sub-office pages */
+
+/* Hero Section */
+.ak-hero.ak-style1 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ak-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1;
+}
+
+.ak-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.ak-hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ak-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ak-breadcrumb {
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+.ak-breadcrumb a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.ak-breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+/* Tabs Section */
+.ak-tabs-section .nav-tabs {
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.ak-tabs-section .nav-tabs .nav-item .nav-link {
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--heading-color);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ak-tabs-section .nav-tabs .nav-item .nav-link.active,
+.ak-tabs-section .nav-tabs .nav-item .nav-link:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: transparent;
+}
+
+.ak-tabs-section .tab-content {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+
+/* Sub-Offices Section */
+.sub-office-section {
+  padding: 50px 0;
+}
+
+.sub-office-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--heading-color);
+}
+
+.sub-office-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.sub-office-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.sub-office-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+.sub-office-card .service-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ak-hero-title {
+    font-size: 3rem;
+  }
+  .ak-hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .ak-hero-title {
+    font-size: 2.5rem;
+  }
+  .ak-hero-subtitle {
+    font-size: 1rem;
+  }
+  .sub-office-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Local Service Areas Section */
+.ak-local-service-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.ak-service-card-2 {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.ak-service-card-2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.ak-service-card-2 .ak-service-icon {
+  margin-bottom: 25px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ak-service-card-2 .ak-service-icon img {
+  max-width: 45px;
+}
+
+.ak-service-card-2 .ak-service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 15px;
+}
+
+.ak-service-card-2 .ak-service-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Competitive Advantage Section */
+.ak-advantage_section {
+  padding: 80px 0;
+  background-color: #f8f9fa; /* Alternate background color */
+}
+
+.ak-advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.ak-advantage-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.ak-advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.ak-advantage-icon {
+  flex-shrink: 0;
+  margin-right: 20px;
+  width: 50px;
+}
+
+.ak-advantage-icon img {
+  max-width: 100%;
+}
+
+.ak-advantage-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--heading-color);
+}
+
+.ak-advantage-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .ak-advantage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*--------------------------------------------------------------
+21. Funfact Section
+----------------------------------------------------------------*/
+.ak-stats_section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.ak-funfact-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.ak-funfact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.ak-funfact-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.ak-funfact-title {
+  font-size: 1.1rem;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.ak-type-1 .ak-section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.ak-type-1 .ak-section-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+}
+
+
+/* Competitive Positioning */
+.ak-competitive-positioning {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.ak-positioning-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.ak-positioning-icon {
+  margin-bottom: 20px;
+  height: 60px; /* Fixed height for icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ak-positioning-icon img {
+  max-width: 50px;
+  height: auto;
+}
+
+.ak-positioning-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.ak-positioning-item p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .ak-competitive-positioning {
+    grid-template-columns: 1fr;
+  }
+}

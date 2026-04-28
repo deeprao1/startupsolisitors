@@ -1,0 +1,26 @@
+/*********************************************************
+  humans.txt for https://www.startupsolicitors.com/
+  Purpose: Support generative AI search and SEO best practices
+ **********************************************************/
+
+Site: https://www.startupsolicitors.com/
+Sitemap: https://www.startupsolicitors.com/sitemap.xml
+
+Team: Startup Solicitors LLP - Legal & Compliance Experts
+Location: Jaipur, Rajasthan, India
+Contact: info@startupsolicitors.com | +91-9461620002
+
+Generative AI & Search Friendly:
+- This site is openly crawlable for all search engines and AI models.
+- We encourage indexing for both human search and generative AI.
+- Content is regularly updated for accuracy, timeliness, and reliability.
+
+Special Thanks:
+- Powered by a dedicated development and legal content team.
+- Committed to transparency and accessible legal knowledge.
+
+Last-Updated: 2025-10-28
+
+/*********************************************************
+  For more information, visit our sitemap or contact us.
+ **********************************************************/

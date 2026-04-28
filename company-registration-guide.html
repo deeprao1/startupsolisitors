@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Registration Guide | Startup Solicitors</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  /* ============================================================
+     CSS CUSTOM PROPERTIES
+  ============================================================ */
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #4a4a4a;
+    --accent: #0066cc;
+    --accent-light: #e6f0ff;
+    --border: #e0e0e0;
+    --header-bg: #ffffff;
+    --sidebar-bg: #f9f9f9;
+    --white: #ffffff;
+    --font-main: 'Source Sans 3', -apple-system, sans-serif;
+
+    /* Layout tokens — change once, applies everywhere */
+    --header-h: 65px;
+    --sidebar-left-w: 240px;
+    --sidebar-right-w: 280px;
+    --gap: 40px;
+    --content-max: 1300px;
+    --px: 32px;        /* horizontal page padding */
+    --scroll-offset: calc(var(--header-h) + 20px);
+  }
+
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-main);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { transition: color 0.2s; }
+
+  /* ============================================================
+     HEADER
+  ============================================================ */
+  header {
+    background: var(--header-bg);
+    height: var(--header-h);
+    padding: 0 var(--px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .header-inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 16px; min-width: 0; }
+  .logo-area img { height: 32px; filter: invert(1); flex-shrink: 0; }
+  .header-tagline {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    padding-left: 16px;
+    border-left: 1px solid var(--border);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  nav { display: flex; gap: 24px; align-items: center; }
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  nav a:hover { color: var(--accent); }
+  .btn-contact {
+    background: white;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-contact:hover { background: var(--accent); color: white; }
+
+  /* Hamburger (mobile) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* Mobile nav drawer */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px var(--px);
+    z-index: 199;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--accent); }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    position: relative;
+    padding: 64px var(--px) 48px;
+    border-bottom: 1px solid var(--border);
+    background: url('assets/img/service/book.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.72);
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+  .hero-badge {
+    color: #93c5fd;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    max-width: 700px;
+  }
+  .hero-sub {
+    font-size: clamp(14px, 2vw, 17px);
+    color: #cbd5e1;
+    max-width: 680px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 40px;
+    margin-top: 32px;
+  }
+  .hero-stat { display: flex; flex-direction: column; }
+  .hero-stat .num {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .hero-stat .lbl {
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  /* ============================================================
+     PAGE BODY — 3-COLUMN GRID
+  ============================================================ */
+  .page-body {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 40px var(--px);
+    display: grid;
+    grid-template-columns: var(--sidebar-left-w) 1fr var(--sidebar-right-w);
+    gap: var(--gap);
+    align-items: start;
+  }
+
+  /* ============================================================
+     LEFT SIDEBAR — TOC
+  ============================================================ */
+  .sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 16px);
+    max-height: calc(100vh - var(--header-h) - 32px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-list { list-style: none; }
+  .toc-list li a {
+    display: block;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.2s;
+    line-height: 1.4;
+  }
+  .toc-list li a:hover { color: var(--text); background: var(--sidebar-bg); }
+  .toc-list li a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--accent-light);
+    font-weight: 600;
+  }
+  .toc-list li a .toc-num { display: none; }
+
+  /* Mobile TOC toggle */
+  .toc-mobile-toggle {
+    display: none;
+    width: 100%;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .toc-mobile-toggle .arrow { transition: transform 0.3s; font-size: 12px; }
+  .toc-mobile-toggle.open .arrow { transform: rotate(180deg); }
+  .toc-mobile-panel {
+    display: none;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 0;
+    margin-bottom: 24px;
+  }
+  .toc-mobile-panel.open { display: block; }
+
+  /* ============================================================
+     MAIN CONTENT
+  ============================================================ */
+  main { min-width: 0; }
+  .section { margin-bottom: 48px; scroll-margin-top: var(--scroll-offset); }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .section h3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text);
+    margin: 28px 0 12px;
+    font-weight: 600;
+  }
+  .section p {
+    color: var(--text);
+    margin-bottom: 18px;
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.75;
+  }
+  .section p strong { font-weight: 600; }
+  .section-num { display: none; }
+
+  /* Cards */
+  .info-card {
+    background: var(--sidebar-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--accent);
+  }
+  .info-card .ic-title { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 8px; }
+  .info-card .ic-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* Step list */
+  .step-list { list-style: none; margin: 24px 0; counter-reset: steps; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    min-width: 28px;
+    height: 28px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-list li .step-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-size: clamp(13px, 1.5vw, 15px);
+  }
+  .step-list li .step-desc { font-size: clamp(12px, 1.4vw, 14px); color: var(--muted); line-height: 1.6; }
+
+  /* Highlight / warn boxes */
+  .highlight-box {
+    background: #eef2f6;
+    border-left: 4px solid var(--accent);
+    padding: 18px 20px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  .warn-box {
+    background: #fff8e1;
+    border-left: 4px solid #ffb300;
+    padding: 18px 20px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(12px, 1.4vw, 14px);
+    margin: 18px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .data-table th, .data-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+  .data-table th { background: var(--sidebar-bg); font-weight: 600; color: var(--text); }
+
+  /* ============================================================
+     RIGHT SIDEBAR
+  ============================================================ */
+  .right-sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 16px);
+    background: var(--sidebar-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .right-sidebar h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
+  .topic-list { list-style: none; }
+  .topic-list li { margin-bottom: 0; }
+  .topic-list li a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .topic-list li a:hover { color: var(--accent); background: var(--accent-light); }
+
+  /* ============================================================
+     BOTTOM CTA
+  ============================================================ */
+  .bottom-cta {
+    text-align: center;
+    margin-top: 48px;
+    padding: 56px 32px;
+    background: linear-gradient(135deg, rgba(0,102,204,0.08), rgba(0,0,0,0.04));
+    border: 1px solid rgba(0,102,204,0.2);
+    border-radius: 16px;
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .bottom-cta p {
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    font-size: clamp(13px, 1.5vw, 15px);
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover { background: #0052a3; transform: translateY(-1px); }
+
+  /* Disclaimer */
+  .disclaimer {
+    max-width: var(--content-max);
+    margin: 24px auto 0;
+    padding: 16px var(--px);
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--sidebar-bg);
+    padding: 40px var(--px);
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     1. ≥1280px  — Full 3-column desktop (default above)
+     2. 1024–1279px — 2-column (hide right sidebar)
+     3.  768–1023px — 2-column, narrower left sidebar
+     4.  600–767px  — single column, TOC collapsible
+     5.    0–599px  — full mobile
+  ============================================================ */
+
+  /* ---------- 1024px – 1279px (tablet-landscape / small desktop) ---------- */
+  @media (max-width: 1279px) {
+    :root { --px: 28px; --gap: 32px; }
+    .page-body {
+      grid-template-columns: 220px 1fr;
+    }
+    .right-sidebar { display: none; }
+  }
+
+  /* ---------- 768px – 1023px (tablet-portrait) ---------- */
+  @media (max-width: 1023px) {
+    :root { --px: 24px; --gap: 28px; }
+
+    .header-tagline { display: none; }
+    nav { display: none; }
+    .hamburger { display: flex; }
+
+    .hero { padding: 48px var(--px) 36px; }
+
+    .page-body {
+      grid-template-columns: 200px 1fr;
+      padding-top: 32px;
+    }
+  }
+
+  /* ---------- 767px and below (mobile) ---------- */
+  @media (max-width: 767px) {
+    :root { --px: 20px; --gap: 0; }
+
+    /* Header */
+    header { height: auto; min-height: 56px; }
+    :root { --header-h: 56px; }
+    .logo-area img { height: 28px; }
+
+    /* Hero */
+    .hero { padding: 36px var(--px) 28px; }
+    .hero-stats { gap: 16px 24px; }
+    .hero-stat { flex: 1 1 calc(50% - 12px); }
+
+    /* Layout: single column, no left sidebar grid column */
+    .page-body {
+      grid-template-columns: 1fr;
+      padding: 20px var(--px) 32px;
+    }
+    .sidebar { display: none; }   /* Hide sticky sidebar; use inline TOC toggle */
+
+    /* Show mobile TOC toggle */
+    .toc-mobile-toggle { display: flex; }
+
+    /* Content */
+    .section { margin-bottom: 36px; scroll-margin-top: 80px; }
+    .step-list li { gap: 12px; }
+    .info-card { padding: 16px; }
+
+    /* CTA */
+    .bottom-cta { padding: 36px 20px; }
+    .cta-btn { padding: 13px 28px; }
+  }
+
+  /* ---------- 599px and below (small mobile) ---------- */
+  @media (max-width: 599px) {
+    :root { --px: 16px; }
+
+    .hero { padding: 28px var(--px) 24px; }
+    .hero-stats { gap: 12px 20px; }
+
+    /* Tables scroll horizontally */
+    .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .data-table { min-width: 480px; }
+
+    .step-list li::before { min-width: 24px; height: 24px; font-size: 11px; }
+
+    .bottom-cta { padding: 28px 16px; border-radius: 12px; }
+    .cta-btn { width: 100%; text-align: center; padding: 13px 20px; }
+  }
+
+  /* ---------- 380px and below (very small phones) ---------- */
+  @media (max-width: 380px) {
+    :root { --px: 14px; }
+    .hero-stat { flex: 1 1 100%; }
+    .hero-stats { gap: 10px; }
+  }
+
+  /* ============================================================
+     UTILITY: smooth reveal for sections
+  ============================================================ */
+  @media (prefers-reduced-motion: no-preference) {
+    .section { animation: fadeUp 0.4s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-area">
+        <img alt="Startup Solicitors" src="assets/img/white-logo.svg"/>
+      </div>
+      <div class="header-tagline">Company Registration Guide</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      
+      <a href="contact.html" class="btn-contact">Contact Us</a>
+    </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav" role="navigation">
+  <a href="index.html">Home</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Complete Legal Guide · 2024 Edition</div>
+    <h1><span>Company Registration</span> Guide</h1>
+    <p class="hero-sub">A comprehensive legal and regulatory guide covering corporate structures, registrations, compliances, taxation, and intellectual property for technology businesses in India.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">12+</div><div class="lbl">Key Steps</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="lbl">Legal Structures</div></div>
+      <div class="hero-stat"><div class="num">30+</div><div class="lbl">Compliance Points</div></div>
+      <div class="hero-stat"><div class="num">100%</div><div class="lbl">Expert Guidance</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE BODY
+============================================================ -->
+<div class="page-body">
+
+  <!-- LEFT SIDEBAR — TOC (desktop/tablet) -->
+  <aside class="sidebar" aria-label="Table of contents">
+    <div class="sidebar-title">Index</div>
+    <ul class="toc-list" id="tocList">
+      <li><a href="#intro">Introduction to Business Structures</a></li>
+      <li><a href="#types">Types of Entities in India</a></li>
+      <li><a href="#private-limited">Why Choose a Private Limited Company?</a></li>
+      <li><a href="#prerequisites">Prerequisites for Incorporation</a></li>
+      <li><a href="#spice">The SPICe+ Incorporation Process</a></li>
+      <li><a href="#moa-aoa">Drafting the MOA &amp; AOA</a></li>
+      <li><a href="#foreign">Foreign Subsidiary Setup (FDI)</a></li>
+      <li><a href="#post-inc">Post-Incorporation Compliance</a></li>
+      <li><a href="#ongoing">Annual Ongoing Compliances</a></li>
+      <li><a href="#closure">Winding Up / Closure Options</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- Mobile TOC accordion (shown only on mobile) -->
+    <button class="toc-mobile-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocMobilePanel">
+      📋 Table of Contents <span class="arrow">▼</span>
+    </button>
+    <div class="toc-mobile-panel" id="tocMobilePanel" role="region">
+      <ul class="toc-list" id="tocListMobile">
+        <li><a href="#intro">Introduction to Business Structures</a></li>
+        <li><a href="#types">Types of Entities in India</a></li>
+        <li><a href="#private-limited">Why Choose a Private Limited Company?</a></li>
+        <li><a href="#prerequisites">Prerequisites for Incorporation</a></li>
+        <li><a href="#spice">The SPICe+ Incorporation Process</a></li>
+        <li><a href="#moa-aoa">Drafting the MOA &amp; AOA</a></li>
+        <li><a href="#foreign">Foreign Subsidiary Setup (FDI)</a></li>
+        <li><a href="#post-inc">Post-Incorporation Compliance</a></li>
+        <li><a href="#ongoing">Annual Ongoing Compliances</a></li>
+        <li><a href="#closure">Winding Up / Closure Options</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+
+    <div class="guide-content">
+
+      <!-- Section 01 -->
+      <section class="section" id="intro">
+        <div class="section-header"><span class="section-num">Section 01</span><h2>Introduction to Business Structures</h2></div>
+        <p>The foundation of any successful commercial enterprise begins with the critical decision of choosing the correct legal structure. In India, the legal entity you select determines everything from your personal liability and the taxes you will pay, to the administrative burden you must shoulder and your ability to raise capital from external investors. It is not merely a bureaucratic checkbox; it is a fundamental strategic choice that will dictate the operational framework of your business for its entire lifecycle.</p>
+        <p>Historically, setting up a business in India was perceived as a labyrinthine process involving multiple government departments, physical paperwork, and prolonged waiting periods. However, driven by the government's 'Ease of Doing Business' initiatives, the landscape has been radically transformed. The Ministry of Corporate Affairs (MCA) has digitized the entire incorporation process through centralized web forms, amalgamating various registrations into a single, streamlined window. Today, a new company can be brought into existence within a matter of days, provided the documentation is immaculate.</p>
+        <p>Before initiating any formal registration, founders must engage in a rigorous assessment of their business model. Key considerations include the scale of proposed operations, the degree of control desired by the founders, the projected revenue streams, the intended geographic reach, and, most crucially, the funding strategy.</p>
+        <div class="info-card">
+          <div class="ic-title">Liability Shield</div>
+          <div class="ic-body">The primary advantage of incorporation is the creation of a 'corporate veil', which separates the personal assets of the founders from the liabilities and debts of the business.</div>
+        </div>
+      </section>
+
+      <!-- Section 02 -->
+      <section class="section" id="types">
+        <div class="section-header"><span class="section-num">Section 02</span><h2>Types of Entities in India</h2></div>
+        <p>The Indian legal framework offers a variety of structures, each tailored to specific business needs. The most common structures include Sole Proprietorships, Partnerships, Limited Liability Partnerships (LLPs), and Companies (Private, Public, and One Person).</p>
+        <p>A Sole Proprietorship is the simplest and most prevalent form of business in the unorganized sector. It is owned and managed by a single individual. While it requires minimal regulatory compliance, it suffers from a fatal flaw for growth-oriented businesses: unlimited personal liability.</p>
+        <p>To bridge the gap between traditional partnerships and complex corporate structures, the Limited Liability Partnership (LLP) was introduced via the LLP Act, 2008. An LLP provides the benefits of limited liability to its partners while allowing them the flexibility of organizing their internal structure as a partnership based on a mutually drafted agreement.</p>
+        <p>However, for businesses aiming for rapid scale, high valuations, and external funding, the Company structure, governed by the Companies Act, 2013, remains the gold standard.</p>
+      </section>
+
+      <!-- Section 03 -->
+      <section class="section" id="private-limited">
+        <div class="section-header"><span class="section-num">Section 03</span><h2>Why Choose a Private Limited Company?</h2></div>
+        <p>The Private Limited Company (Pvt Ltd) is overwhelmingly the preferred choice of legal entity for startups and growing businesses in India. It requires a minimum of two directors and two shareholders, and the maximum number of members is capped at 200.</p>
+        <p>Firstly, it establishes a separate legal entity. A Pvt Ltd company is an artificial juridical person distinct from its founders. It can own property, incur debts, sue, and be sued in its own name. This leads directly to the second massive benefit: limited liability.</p>
+        <p>Thirdly, a Pvt Ltd company is the only universally accepted structure for raising venture capital (VC), angel investment, or private equity. Institutional investors require the issuing of equity shares, preference shares, or convertible notes—instruments that are easily managed within a corporate structure.</p>
+        <p>Lastly, it commands significantly higher credibility in the market. Suppliers, large corporate B2B clients, and financial institutions generally prefer dealing with registered companies due to the inherent transparency mandated by the Ministry of Corporate Affairs.</p>
+      </section>
+
+      <!-- Section 04 -->
+      <section class="section" id="prerequisites">
+        <div class="section-header"><span class="section-num">Section 04</span><h2>Prerequisites for Incorporation</h2></div>
+        <p>Before logging onto the MCA portal, the founders must assemble specific prerequisites to ensure a smooth, uninterrupted incorporation process.</p>
+        <ul class="step-list">
+          <li><div><div class="step-title">Minimum Requirements</div><div class="step-desc">For a Pvt Ltd, you need a minimum of 2 Directors (at least one must be an Indian Resident) and 2 Shareholders. There is no longer a mandatory minimum paid-up capital requirement, meaning you can start a company with an authorized capital of as little as ₹1,000, though ₹1,00,000 is standard.</div></div></li>
+          <li><div><div class="step-title">Digital Signature Certificate (DSC)</div><div class="step-desc">The entire MCA process is paperless. Therefore, all proposed directors and subscribers to the memorandum must obtain a Class 3 Digital Signature Certificate from a certified government authority to digitally sign the electronic forms.</div></div></li>
+          <li><div><div class="step-title">Director Identification Number (DIN)</div><div class="step-desc">A DIN is a unique 8-digit number allotted to an individual intending to be a director. Crucially, under the new system, you do not need to apply for a DIN separately beforehand. It is automatically allotted through the integrated SPICe+ incorporation form.</div></div></li>
+          <li><div><div class="step-title">Registered Office Address</div><div class="step-desc">The company must have a registered office capable of receiving official communications. A utility bill (electricity, water) not older than two months and a No Objection Certificate (NOC) from the property owner are mandatory proofs. The office can be commercial or residential.</div></div></li>
+        </ul>
+      </section>
+
+      <!-- Section 05 -->
+      <section class="section" id="spice">
+        <div class="section-header"><span class="section-num">Section 05</span><h2>The SPICe+ Incorporation Process</h2></div>
+        <p>The Ministry of Corporate Affairs (MCA) revolutionized company registration with the introduction of SPICe+ (Simplified Proforma for Incorporating Company Electronically Plus). It is an integrated web form that replaces multiple older forms and processes, offering a single window for various crucial registrations.</p>
+        <p>The SPICe+ form is divided into two distinct parts. <strong>SPICe+ Part A</strong> is strictly for Name Reservation. The applicant proposes up to two names. Once Part A is approved, the name is reserved for 20 days.</p>
+        <p><strong>SPICe+ Part B</strong> is the comprehensive incorporation application. It simultaneously applies for the company's PAN, TAN, mandatory registrations for EPFO and ESIC, Profession Tax registration, and even initiates the opening of a corporate bank account with partner banks—all through a single submission.</p>
+        <p>If the documents are in order, the Registrar of Companies (ROC) issues a Certificate of Incorporation (COI) containing the Corporate Identification Number (CIN), PAN, and TAN.</p>
+      </section>
+
+      <!-- Section 06 -->
+      <section class="section" id="moa-aoa">
+        <div class="section-header"><span class="section-num">Section 06</span><h2>Drafting the MOA &amp; AOA</h2></div>
+        <p>The Memorandum of Association (MOA) and Articles of Association (AOA) are the fundamental constitutional documents of the company. They define the company's existence, its scope of operations, and its internal governance rules.</p>
+        <p>The <strong>Memorandum of Association (MOA)</strong> outlines the external boundaries of the company. The most critical part is the "Objects Clause." A company cannot legally engage in any business activity not explicitly stated in its MOA. The objects clause must be drafted broadly enough to accommodate foreseeable future pivots or expansions.</p>
+        <p>The <strong>Articles of Association (AOA)</strong> contain the internal rules and regulations for the management of the company. Key provisions include the rights attached to different classes of shares, the procedure for issuing or transferring shares, the rules for conducting board meetings, the appointment and remuneration of directors, and the declaration of dividends.</p>
+      </section>
+
+      <!-- Section 07 -->
+      <section class="section" id="foreign">
+        <div class="section-header"><span class="section-num">Section 07</span><h2>Foreign Subsidiary Setup (FDI)</h2></div>
+        <p>India is one of the most attractive destinations globally for Foreign Direct Investment (FDI). Foreign nationals and international corporations can easily incorporate a company in India. A company incorporated in India with foreign shareholding is considered an Indian company for all regulatory and taxation purposes.</p>
+        <p>For most sectors, 100% FDI is permitted under the "Automatic Route," meaning no prior approval from the Reserve Bank of India (RBI) or the Government of India is required. However, investments from entities based in countries that share a land border with India require prior government approval under Press Note 3 (2020).</p>
+        <p>When incorporating a subsidiary with foreign directors or shareholders, identity proofs and address proofs of foreign nationals must be notarized and apostilled in their home country. The company must file Form FC-GPR with the RBI via the FIRMS portal within 30 days of the allotment of shares to the foreign investors.</p>
+      </section>
+
+      <!-- Section 08 -->
+      <section class="section" id="post-inc">
+        <div class="section-header"><span class="section-num">Section 08</span><h2>Immediate Post-Incorporation Compliance</h2></div>
+        <p>Receiving the Certificate of Incorporation is not the end of the regulatory journey; it marks the beginning of the company's statutory life. Several mandatory actions must be taken almost immediately to activate the company and avoid severe early penalties.</p>
+        <p>First, within 180 days of incorporation, the company must file <strong>Form INC-20A (Declaration of Commencement of Business)</strong>. A company cannot commence any business operations, sign contracts, or exercise borrowing powers until INC-20A is filed.</p>
+        <p>Secondly, the Board of Directors must hold its first official meeting within 30 days of incorporation. The first auditor must be appointed by the Board within 30 days, and the appointment must be communicated to the ROC via <strong>Form ADT-1</strong> within 15 days of the appointment.</p>
+      </section>
+
+      <!-- Section 09 -->
+      <section class="section" id="ongoing">
+        <div class="section-header"><span class="section-num">Section 09</span><h2>Annual Ongoing Compliances</h2></div>
+        <p>A Private Limited Company must maintain strict ongoing compliance to retain its active status. The Companies Act mandates significant disclosures to ensure transparency.</p>
+        <ul class="step-list">
+          <li><div><div class="step-title">Statutory Audit</div><div class="step-desc">Every company, regardless of its turnover, profit, or loss, must have its financial accounts audited annually by a practicing Chartered Accountant.</div></div></li>
+          <li><div><div class="step-title">Annual General Meeting (AGM)</div><div class="step-desc">The company must hold an AGM of its shareholders every calendar year. The first AGM must be held within 9 months from the closing of the first financial year; subsequent AGMs within 6 months.</div></div></li>
+          <li><div><div class="step-title">ROC Annual Filings</div><div class="step-desc">Post-AGM, the company must file Form AOC-4 (audited financial statements, within 30 days of AGM) and Form MGT-7 (annual return, within 60 days of AGM).</div></div></li>
+          <li><div><div class="step-title">Board Meetings</div><div class="step-desc">The Board of Directors must meet at least four times a year, with a maximum gap of 120 days between two consecutive meetings.</div></div></li>
+          <li><div><div class="step-title">Income Tax Return</div><div class="step-desc">The company must file its corporate income tax return (ITR-6) annually, irrespective of whether it made a profit or a loss.</div></div></li>
+        </ul>
+      </section>
+
+      <!-- Section 10 -->
+      <section class="section" id="closure">
+        <div class="section-header"><span class="section-num">Section 10</span><h2>Winding Up / Closure Options</h2></div>
+        <p>If a business venture fails to take off, simply abandoning the company is not legally permissible. An inactive company that fails to file its annual returns will be marked as non-compliant, and its directors risk being disqualified from holding directorships for a period of five years.</p>
+        <p>The simplest method to close a defunct company is "Strike Off" under Section 248 of the Companies Act, utilizing Form STK-2. To be eligible, the company must not have commenced business within one year of incorporation, or must not have carried on any business for a period of two immediately preceding financial years.</p>
+        <p>If a company is operational but facing insurmountable debt, it must undergo the formal process of winding up or liquidation under the Insolvency and Bankruptcy Code (IBC), involving the appointment of a liquidator who takes over the assets, pays off creditors in a strict order of priority, and officially dissolves the corporate entity.</p>
+      </section>
+
+      <!-- Section 11 — FAQ -->
+      <section class="section" id="faq">
+        <div class="section-header"><span class="section-num">Section 11</span><h2>Frequently Asked Questions</h2></div>
+        <div class="faq-container">
+          <div class="info-card">
+            <div class="ic-title">What is the minimum capital required to start a Private Limited Company?</div>
+            <div class="ic-body">There is no longer a statutory minimum paid-up capital requirement under the Companies Act, 2013. You can technically start a company with an authorized capital of ₹1,000, although ₹1,00,000 is the industry norm.</div>
+          </div>
+          <div class="info-card">
+            <div class="ic-title">Can I register a company at my residential address?</div>
+            <div class="ic-body">Yes. A registered office can be a commercial property, an industrial unit, or a residential home. You only need to provide a recent utility bill in the owner's name and a No Objection Certificate (NOC) from the property owner allowing the company to use the premises.</div>
+          </div>
+          <div class="info-card">
+            <div class="ic-title">Do I need to be physically present in India to incorporate a company?</div>
+            <div class="ic-body">No, the entire incorporation process is 100% online. However, every Indian company must have at least one director who has stayed in India for a total period of not less than 182 days in the previous calendar year.</div>
+          </div>
+          <div class="info-card">
+            <div class="ic-title">What is the difference between Authorized Capital and Paid-up Capital?</div>
+            <div class="ic-body">Authorized Capital is the maximum amount of share capital the company is legally authorized to issue, as stated in its MOA. Paid-up Capital is the actual amount of money shareholders have paid into the company's bank account in exchange for shares.</div>
+          </div>
+          <div class="info-card">
+            <div class="ic-title">Is GST registration mandatory immediately upon incorporation?</div>
+            <div class="ic-body">No, GST registration is not automatically mandatory upon incorporation. It becomes mandatory only when your aggregate annual turnover crosses ₹20 Lakhs for services (or ₹40 Lakhs for goods in most states), or if you engage in inter-state taxable supply or e-commerce.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom CTA -->
+      <div class="bottom-cta">
+        <div class="cta-title">Ready to Register Your Company?</div>
+        <p>Start your business journey with our hassle-free incorporation services.</p>
+        <a class="cta-btn" href="contact.html">Start Incorporation</a>
+      </div>
+
+    </div><!-- /.guide-content -->
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="right-sidebar" aria-label="Browse topics">
+    <h3>Browse by topics</h3>
+    <ul class="topic-list">
+      <li><a href="company-registration-guide.html">Company Registration</a></li>
+      <li><a href="it-company-setup-guide.html">IT Company Setup</a></li>
+      <li><a href="tax-planning-handbook.html">Tax Planning</a></li>
+      <li><a href="trademark-filing-manual.html">Trademark Filing</a></li>
+      <li><a href="startup-india-registration.html">Startup India Reg.</a></li>
+      <li><a href="gst-registration.html">GST Registration</a></li>
+      <li><a href="msme-udyami-registration.html">MSME Registration</a></li>
+    </ul>
+  </aside>
+
+</div><!-- /.page-body -->
+
+<div class="disclaimer">
+  <strong>Legal Disclaimer:</strong> This guide is for informational purposes only and does not constitute legal advice. Laws and regulations are subject to change. Please consult a qualified legal professional at Startup Solicitors for advice specific to your situation.
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---- Hamburger menu ---- */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileNav    = document.getElementById('mobileNav');
+
+  hamburgerBtn.addEventListener('click', function () {
+    const open = mobileNav.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', open);
+    // Animate spans into X
+    const spans = hamburgerBtn.querySelectorAll('span');
+    if (open) {
+      spans[0].style.cssText = 'transform:translateY(7px) rotate(45deg)';
+      spans[1].style.cssText = 'opacity:0';
+      spans[2].style.cssText = 'transform:translateY(-7px) rotate(-45deg)';
+    } else {
+      spans.forEach(s => s.style.cssText = '');
+    }
+  });
+
+  /* ---- Mobile TOC toggle ---- */
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanel  = document.getElementById('tocMobilePanel');
+
+  if (tocToggle) {
+    tocToggle.addEventListener('click', function () {
+      const open = tocPanel.classList.toggle('open');
+      tocToggle.classList.toggle('open', open);
+      tocToggle.setAttribute('aria-expanded', open);
+    });
+  }
+
+  /* ---- Close mobile nav & TOC when a link is clicked ---- */
+  document.querySelectorAll('.mobile-nav a, .toc-mobile-panel a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+      hamburgerBtn.querySelectorAll('span').forEach(s => s.style.cssText = '');
+      if (tocPanel) tocPanel.classList.remove('open');
+      if (tocToggle) { tocToggle.classList.remove('open'); tocToggle.setAttribute('aria-expanded', false); }
+    });
+  });
+
+  /* ---- Smooth scroll for all TOC links ---- */
+  const headerH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 65;
+
+  document.querySelectorAll('.toc-list a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').slice(1));
+      if (!target) return;
+      window.scrollTo({ top: target.offsetTop - headerH() - 20, behavior: 'smooth' });
+      setActive(this.getAttribute('href').slice(1));
+    });
+  });
+
+  /* ---- Active link on scroll (IntersectionObserver — performant) ---- */
+  const sections  = document.querySelectorAll('.section[id]');
+  const allLinks  = document.querySelectorAll('.toc-list a'); // covers both sidebars
+
+  function setActive(id) {
+    allLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, {
+    rootMargin: `-${headerH() + 20}px 0px -55% 0px`,
+    threshold: 0
+  });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ---- Set first item active on load ---- */
+  if (allLinks.length) allLinks[0].classList.add('active');
+});
+</script>
+</body>
+</html>

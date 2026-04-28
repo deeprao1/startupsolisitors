@@ -1,0 +1,219 @@
+/*
+  Popup Styles for Startup Solicitors
+  Premium, corporate, dynamic visual styling.
+*/
+
+/* Popup Overlay */
+.ak-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(3, 9, 23, 0.6); /* --heading-color with opacity */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.ak-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dynamic Visual Popup Container */
+.ak-popup-container.ak-popup-dynamic {
+  background-color: var(--white-color, #ffffff);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 850px;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9) translateY(30px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+  display: flex;
+  overflow: hidden; /* For border radius to clip image */
+}
+
+.ak-popup-overlay.active .ak-popup-container.ak-popup-dynamic {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Image Side */
+.ak-popup-image {
+  flex: 1 1 45%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--body-bg-color-two, #f4ffff);
+}
+
+.ak-popup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1.5s ease;
+}
+
+.ak-popup-overlay.active .ak-popup-image img {
+  transform: scale(1.05);
+}
+
+/* Content Side */
+.ak-popup-content {
+  flex: 1 1 55%;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+/* Close Button */
+.ak-popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  background: var(--white-color, #ffffff);
+  border: 1px solid rgba(3, 9, 23, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  padding: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ak-popup-close:hover {
+  background-color: var(--primary-color, #f9d67c);
+  border-color: var(--primary-color, #f9d67c);
+}
+
+.ak-popup-close svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--heading-color, #030917);
+  transition: stroke 0.3s ease;
+}
+
+/* Typography */
+.ak-popup-title {
+  font-family: var(--heading-font-family, "Lato", sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--heading-color, #030917);
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.ak-popup-desc {
+  font-family: var(--body-font-family, "DM Sans", sans-serif);
+  font-size: 16px;
+  color: var(--body-color, #485b60);
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+/* Popup Actions */
+.ak-popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ak-popup-btn {
+  font-family: var(--body-font-family, "DM Sans", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.ak-popup-btn-primary {
+  background-color: var(--primary-color, #f9d67c);
+  color: var(--heading-color, #030917);
+  border: 2px solid var(--primary-color, #f9d67c);
+}
+
+.ak-popup-btn-primary:hover {
+  background-color: transparent;
+  color: var(--heading-color, #030917);
+}
+
+.ak-popup-btn-secondary {
+  background-color: transparent;
+  color: var(--heading-color, #030917);
+  border: 2px solid var(--heading-color, #030917);
+}
+
+.ak-popup-btn-secondary:hover {
+  background-color: var(--heading-color, #030917);
+  color: var(--white-color, #ffffff);
+}
+
+.ak-popup-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.ak-popup-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .ak-popup-container.ak-popup-dynamic {
+    flex-direction: column;
+    max-width: 450px;
+  }
+  
+  .ak-popup-image {
+    flex: none;
+    height: 180px;
+  }
+  
+  .ak-popup-content {
+    flex: none;
+    padding: 35px 25px 30px;
+    text-align: center;
+  }
+  
+  .ak-popup-title {
+    font-size: 28px;
+  }
+  
+  .ak-popup-desc {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .ak-popup-actions {
+    gap: 12px;
+  }
+  
+  .ak-popup-btn {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}
